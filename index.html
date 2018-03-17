@@ -1,9 +1,23 @@
 <!doctype html>
 <html>
 <head>
-
 </head>
 <body>
-  
+  <h1>Guess Game</h1>
+  <form id="main">
+    <p>Let's guess number</p>
+    <p>Type number in the box below:</p>
+    <input type="number" name="guessedNumber">
+    <input type="submit" value="guess">
+  </form>
+  <script>
+     form = document.getElementById('main')
+     function guess (e) {
+       e.preventDefault()
+       gNo = document.getElementsByName('guessedNumber')
+       alert('your guess is ' + gNo[0].value)
+     }
+     form.onsubmit = guess
+  </script>
 </body>
 </html>
