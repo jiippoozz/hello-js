@@ -1,23 +1,83 @@
 <!doctype html>
 <html>
-<head>
-</head>
-<body>
-  <h1>Guess Game</h1>
-  <form id="main">
-    <p>Let's guess number</p>
-    <p>Type number in the box below:</p>
-    <input type="number" name="guessedNumber">
-    <input type="submit" value="guess">
-  </form>
-  <script>
-     form = document.getElementById('main')
-     function guess (e) {
-       e.preventDefault()
-       gNo = document.getElementsByName('guessedNumber')
-       alert('your guess is ' + gNo[0].value)
+  <head>
+    <style>
+      body{
+        margin-top:150px;
+        height:100%;
+        overflow: hidden;
+        position: relative;
+        font-size:30px;
+        background-color:#353433;
+      }
+      .textstyle {
+        text-align:center;
+        font-family:'TitilliumText25L';
+        color:#8b8685;
+      }
+      .textfield {
+        font-size:20px;
+        font-weight: bold;
+        border-width:2px;
+        border-color:#353433;
+        border-radius:5px;
+        height:28px;
+        width:100px;
+        text-align:right;
+        background-color:white;
+      }
+      .button {
+        /* border: 0.5px solid; */
+        position:relative;
+        border-color: #121212;
+        font-family: 'TitilliumText25L';
+        background-color:#121212;
+        color: #e9e8e7;
+        border-radius: 5px;
+        padding: 8px;
+        font-size: 15px;
+        box-sizing: context-box;
+        text-decoration: none;
+        -webkit-font-smoothing:antialiased;
+        font-weight: bold;
+        justify-content: center;
+      }
+      input {
+        position: relative;
+        top:20px;
+      }
+    </style>
+  </head>
+  <body class="textstyle">
+    <h1 style="font-weight:border; font-size:100px;">GUESS GAME</h1>
+    <form id="main">
+      <p style="color: #ffb;">Let's guess a number</p>
+      <p style="color: #ffb;">Type number in the box below (1-500):</p>
+      <input
+        class="textfield"
+        type="number"
+        name="guessedNumber"
+      >
+      <input class="button" type="submit" value="guess">
+    </form>
+    <script>
+      theNumber = 121;
+      form = document.getElementById('main')
+      function guess (e) {
+        e.preventDefault()
+        gNo = document.getElementsByName('guessedNumber')
+        if (gNo[0].value == theNumber) {
+          alert('your guess is ' + gNo[0].value + ', and it is the number!!')
+          guessedNumber = 0;
+        }
+        else if (gNo[0].value > theNumber) {
+          alert('your guess is ' + gNo[0].value + ', and it is too high')
+        }
+        else {
+          alert('your guess is ' + gNo[0].value + ', and it is too low')
+        }
      }
      form.onsubmit = guess
-  </script>
-</body>
+    </script>
+  </body>
 </html>
